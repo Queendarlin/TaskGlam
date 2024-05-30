@@ -1,0 +1,4 @@
+myvenv
+* .log
+__pycache__
+.idea

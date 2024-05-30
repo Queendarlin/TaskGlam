@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container mt-4 mb-5">
+        <div class="card mx-auto" style="width: 300px; background-color: #eee;">
+            <div class="card-header text-center" style="background-color: #343a40; color: white;">
+                <i class="fas fa-user-plus mr-2"></i> Register
+            </div>
+            <form method="POST" class="card-body" style="color: black;">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.username.label(for="username") }}
+                    {{ form.username(class="form-control", id="username", placeholder="Username") }}
+                    {% for error in form.username.errors %}
+                        <span style="color: red;">{{ error }}</span>
+                    <br>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.email_address.label(for="email") }}
+                    {{ form.email_address(class="form-control", id="email", placeholder="Email Address") }}
+                    {% for error in form.email_address.errors %}
+                        <span style="color: red;">{{ error }}</span>
+                    <br>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password1.label(for="password") }}
+                    {{ form.password1(class="form-control", id="password", placeholder="Password") }}
+                    {% for error in form.password1.errors %}
+                        <span style="color: red;">{{ error }}</span>
+                    <br>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password2.label(for="confirm_password") }}
+                    {{ form.password2(class="form-control", id="confirm_password", placeholder="Confirm Password") }}
+                    {% for error in form.password2.errors %}
+                        <span style="color: red;">{{ error }}</span>
+                    <br>
+                    {% endfor %}
+                </div>
+
+                <br>
+                {{ form.submit(class="btn btn-primary btn-block") }}
+
+            </form>
+        </div>
+
+        <div class="mt-4 text-center">
+            <p class="text-light">Already have an account? <a href="{{ url_for('login_page') }}">Login</a></p>
+        </div>
+    </div>
+</body>
+{% endblock %}

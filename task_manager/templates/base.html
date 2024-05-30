@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+           <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <!-- Your custom script -->
+    <script src="{{ url_for('static', filename='scripts/tasks.js') }}" defer></script>
+    <title>
+          {% block title %}
+
+          {% endblock %}
+      </title>
+   </head>
+   <body class="d-flex flex-column min-vh-100">
+   <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{{ url_for('home_page') }}">
+            <img src="{{ url_for('static', filename='images/TaskGlam icon.png') }}" alt="TaskGlam Logo" class="img-fluid" width="60" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                <a class="navbar-brand" href="{{ url_for('tasks_page') }}">Tasks</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link">Welcome, {{ current_user.username }}</a>
+                </li>
+
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('account_settings') }}">Account Settings</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout_page') }}">Logout</a>
+                </li>
+        </ul>
+          {% else %}
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login_page') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register_page') }}">Register</a>
+                </li>
+            </ul>
+          {% endif %}
+      </div>
+    </nav>
+   </header>
+
+   <main>
+       <div class="container mt-4">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="row mt-2">
+            <div class="col-12">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                      <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endwith %}
+        {% block content %}
+
+        {% endblock %}
+    </div>
+   </main>
+
+   <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2024 TaskGlam. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/nnamani.odinaka" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/QOdinaka" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/queendarlin-nnamani" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+   </body>
+<style>
+    body {
+        background-color: #032B44;
+      }
+
+      header {
+      background-color: #f8f9fa;
+      }
+
+      footer {
+        margin-top: auto;
+        background-color: #f8f9fa;
+        padding: 20px 0;
+      }
+
+      .social-icons a {
+        margin: 0 10px;
+      }
+
+      .social-icons a:hover {
+        color: #343a40;
+        }
+
+      .table-dark {
+            background-color: #343a40;
+      }
+</style>
+</html>
