@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="position-relative overflow-hidden p-0 p-md-5 m-md-3 text-center" style="background: url('{{ url_for('static', filename='images/TaskGlam hero image.jpg') }}') no-repeat center center; height: 150vh; background-size: cover;">
+    <div class="position-relative overflow-hidden p-0 p-md-5 m-md-3 text-center">
+        <img src="{{ url_for('static', filename='images/TaskGlam hero image.jpg') }}" alt="Hero Image" style=" no-repeat center center; height: 150vh; background-size: cover;">
         <div class="product-device box-shadow d-none d-md-block"></div>
         <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
     </div>
@@ -85,12 +86,12 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6">
-                <img src="{{ url_for('static', filename='images/benefit image.jpg') }}" class="img-fluid" alt="Benefits Image">
+            <div class="card-img-right col-md-6">
+                <img src="{{ url_for('static', filename='images/benefit image.jpg') }}" class="card-img-top" alt="Benefits Image">
             </div>
+
         </div>
-        <br>
-        <div class="container my-5">
+        <div class="container my-5 mt-5">
               <h2 class="text-center">About TaskGlam</h2>
               <p style="font-size: 18px;">
                 TaskGlam was born out of my desire to create a user-friendly and efficient platform for managing tasks.
@@ -117,7 +118,7 @@
                 </li>
               </ul>
               <p>
-                To see the source code for TaskGlam, visit the project's GitHub repository: <a href="[Project Github Repository URL]">TaskGlam GitHub Repository</a>.
+                To see the source code for TaskGlam, visit the project's GitHub repository: <a href="https://github.com/Queendarlin/TaskGlam">TaskGlam GitHub Repository</a>.
               </p>
             </div>
         </div>
