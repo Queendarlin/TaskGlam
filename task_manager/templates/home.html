@@ -1,127 +1,193 @@
-{% extends 'base.html' %}
-
-{% block title %}
-    Welcome to TaskGlam
-{% endblock %}
-
+<!-- The Home page view of TaskGlam Flask Application -->
+{% extends 'base.html' %} {% block title %} Welcome to TaskGlam {% endblock %}
 {% block content %}
-    <div class="position-relative d-md-block overflow-hidden text-center">
-        <img src="{{ url_for('static', filename='images/TaskGlam-hero.jpg') }}" alt="TaskGlam Hero Image" style="max-width: 100%">
-    </div>
 
+<!-- Hero Image Section -->
+<div class="position-relative d-md-block overflow-hidden text-center shadow-lg">
+  <img
+    src="{{ url_for('static', filename='images/TaskGlam-hero.jpg') }}"
+    alt="TaskGlam Hero Image"
+    style="max-width: 100%"
+  />
+</div>
 
-    <!-- Hero Text Section -->
-    <div class="container text-center my-5" style="color: white;">
-        <div class="col-md-8 mx-auto">
-            <h1>TaskGlam</h1>
-            <br>
-            <h4 class="lead font-weight-normal">Task Management with a Touch of Glamor</h4>
-            <h5 class="lead font-weight-normal">Manage your tasks with style and efficiency.</h5>
-            <br>
-            <a class="btn btn-primary btn-lg" href="{{ url_for('register_page') }}">Get Started</a>
+<!-- Hero Text Section -->
+<div class="container text-center my-5" style="color: #ffffff;">
+  <div class="col-md-8 mx-auto">
+    <h1>TaskGlam</h1>
+    <h4 class="lead font-weight-normal mb-5">
+      Task Management with a Touch of Glamor
+    </h4>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('register_page') }}"
+      >Get Started</a
+    >
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="container my-5">
+  <div class="row">
+    <!-- Feature 1 -->
+    <div class="col-lg-4">
+      <div class="card mb-4 shadow-sm">
+        <img
+          src="{{ url_for('static', filename='images/feature1 image.jpg') }}"
+          class="card-img-top"
+          alt="Feature Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Easy to Use</h5>
+          <p class="card-text">
+            Our intuitive interface ensures you can manage your tasks
+            effortlessly.
+          </p>
         </div>
+      </div>
     </div>
-
-
-    <!-- Features Section -->
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/feature1 image.jpg') }}" class="card-img-top" alt="Feature Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Easy to Use</h5>
-                        <p class="card-text">Our intuitive interface ensures you can manage your tasks effortlessly.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/feature2 image.jpg') }}" class="card-img-top" alt="Feature Image 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Stay Organized</h5>
-                        <p class="card-text">Keep all your tasks in one place and stay on top of your schedule.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/feature3 image.jpg') }}" class="card-img-top" alt="Feature Image 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Effortless Productivity</h5>
-                        <p class="card-text">Simplifies task management process, making it less stressful and time-consuming.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Feature 2 -->
+    <div class="col-lg-4">
+      <div class="card mb-4 shadow-sm">
+        <img
+          src="{{ url_for('static', filename='images/feature2 image.jpg') }}"
+          class="card-img-top"
+          alt="Feature Image 2"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Stay Organized</h5>
+          <p class="card-text">
+            Keep all your tasks in one place and stay on top of your schedule.
+          </p>
         </div>
+      </div>
     </div>
-
-    <!-- Benefits Section -->
-    <div class="container my-5" style="color: white;">
-        <h2 class="text-center mb-4">Why Choose TaskGlam?</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <ul class="list-unstyled">
-                    <li class="media my-4">
-                        <i class="fas fa-check-circle fa-2x mr-3"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Boost Productivity</h5>
-                            Increase your efficiency with our advanced task management features.
-                        </div>
-                    </li>
-                    <li class="media my-4">
-                        <i class="fas fa-check-circle fa-2x mr-3"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Stay Organized</h5>
-                            Organize your tasks in a way that makes sense to you.
-                        </div>
-                    </li>
-                    <li class="media my-4">
-                        <i class="fas fa-check-circle fa-2x mr-3"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Reduce Stress</h5>
-                            Helps YOU manage your workload effectively, reducing stress and feelings of overwhelm.
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="card-img-right col-md-6">
-                <img src="{{ url_for('static', filename='images/Benefit image.jpg') }}" class="card-img-top" alt="Benefits Image">
-            </div>
-
+    <!-- Feature 3 -->
+    <div class="col-lg-4">
+      <div class="card mb-4 shadow-sm">
+        <img
+          src="{{ url_for('static', filename='images/feature3 image.jpg') }}"
+          class="card-img-top"
+          alt="Feature Image 3"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Effortless Productivity</h5>
+          <p class="card-text">
+            Simplifies task management process, making it less stressful and
+            time-consuming.
+          </p>
         </div>
-        <div class="container my-5 mt-5">
-              <h2 class="text-center">About TaskGlam</h2>
-              <p style="font-size: 18px;">
-                TaskGlam was born out of my desire to create a user-friendly and efficient platform for managing tasks.
-                  I constantly juggled multiple tasks and deadlines, often feeling overwhelmed and disorganized.
-                  Existing task management tools felt cumbersome or lacked the features I needed.
-                  That's when I decided to create TaskGlam – a user-friendly and efficient platform to streamline workflow and achieve more.
-              </p>
-              <p style="font-size: 18px;">
-                This project started in May, 2024 as part of my curriculum at Holberton School. You can learn more about Holberton School at <a href="https://www.holbertonschool.com/">Holberton School</a>.
-              </p>
-            <div>
-              <h4>The Solo Developer</h4>
-              <p style="font-size: 18px;">**Queendarlin Nnamani** </p>
-              <p style="font-size: 18px;">A Technical Writer | Aspiring UI/UX & Full-Stack Developer.</p>
-              <p>
-                I built TaskGlam from the ground up, focusing on user experience and intuitive design principles.
-              </p>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="https://www.linkedin.com/in/queendarlin-nnamani/">Queendarlin Nnamani</a>
-                  <br>
-                  <a href="https://github.com/Queendarlin"><i class="fab fa-github"></i></a>
-                  <a href="https://x.com/QOdinaka"><i class="fab fa-twitter"></i></a>
-                </li>
-              </ul>
-              <p>
-                To see the source code for TaskGlam, visit the project's GitHub repository: <a href="https://github.com/Queendarlin/TaskGlam">TaskGlam GitHub Repository</a>.
-              </p>
-            </div>
-        </div>
-
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container my-5" style="color: white;">
+  <h2 class="text-center mb-4">Why Choose TaskGlam?</h2>
+  <div class="row">
+    <!-- Benefits list -->
+    <div class="col-md-6">
+      <ul class="list-unstyled">
+        <li class="media my-4">
+          <i class="fas fa-check-circle fa-2x mr-3"></i>
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Boost Productivity</h5>
+            Increase your efficiency with our advanced task management features.
+          </div>
+        </li>
+        <li class="media my-4">
+          <i class="fas fa-check-circle fa-2x mr-3"></i>
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Stay Organized</h5>
+            Organize your tasks in a way that makes sense to you.
+          </div>
+        </li>
+        <li class="media my-4">
+          <i class="fas fa-check-circle fa-2x mr-3"></i>
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Reduce Stress</h5>
+            Helps you manage your workload effectively, reducing stress and
+            feelings of overwhelm.
+          </div>
+        </li>
+        <li class="media my-4">
+          <i class="fas fa-check-circle fa-2x mr-3"></i>
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Accessibility and Convenience</h5>
+            Offers easy access from any device with an internet connection, allowing you to manage your tasks on the go, update them as needed, and stay on top of your workload regardless of location.
+          </div>
+        </li>
+        <li class="media my-4">
+          <i class="fas fa-check-circle fa-2x mr-3"></i>
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Time Management</h5>
+            Set specific deadlines for each task, creating a sense of urgency and promoting time management.
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- Benefits Image -->
+    <div class="card-img-right col-md-6 shadow-lg">
+      <img
+        src="{{ url_for('static', filename='images/Benefit image.jpg') }}"
+        class="card-img-top"
+        alt="Benefits Image"
+      />
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="container my-5 mt-7 p-2 text-success bg-dark">
+    <h2 class="text-center">About TaskGlam</h2>
+    <p style="font-size: 18px;">
+      TaskGlam was born out of my desire to create a user-friendly and efficient
+      platform for managing tasks. I constantly juggled multiple tasks and
+      deadlines, often feeling overwhelmed and disorganized. Existing task
+      management tools felt cumbersome or lacked the features I needed. That's
+      when I decided to create TaskGlam – a user-friendly and efficient platform
+      to streamline workflow and achieve more.
+    </p>
+    <p style="font-size: 18px;">
+      This project started in May, 2024 as part of my curriculum at Holberton
+      School. You can learn more about Holberton School at
+      <a href="https://www.holbertonschool.com/" target="_blank"
+        >Holberton School</a
+      >.
+    </p>
+    <div>
+      <h4>The Solo Developer</h4>
+      <p style="font-size: 18px;">**Queendarlin Nnamani**</p>
+      <p style="font-size: 18px;">
+        A Technical Writer | Aspiring UI/UX & Full-Stack Developer.
+      </p>
+      <p>
+        I built TaskGlam from the ground up, focusing on user experience and
+        intuitive design principles.
+      </p>
+      <ul class="list-unstyled">
+        <li>
+          <a
+            href="https://www.linkedin.com/in/queendarlin-nnamani/"
+            target="_blank"
+            >Queendarlin Nnamani</a
+          >
+          <br />
+          <a href="https://github.com/Queendarlin" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://x.com/QOdinaka" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </li>
+      </ul>
+      <p>
+        To see the source code for TaskGlam, visit the project's GitHub
+        repository:
+        <a href="https://github.com/Queendarlin/TaskGlam" target="_blank"
+          >TaskGlam GitHub Repository</a
+        >.
+      </p>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

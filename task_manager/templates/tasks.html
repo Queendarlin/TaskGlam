@@ -1,14 +1,16 @@
-{% extends "base.html" %}
-{% block title %}
-  Tasks
-{% endblock %}
+<!-- The Task View Page of TaskGlam Flask Application -->
+{% extends "base.html" %} {% block title %} Tasks {% endblock %} {% block
+content %}
 
-{% block content %}
+<!-- Main container for the tasks page -->
 <div class="container mt-4">
+  <!-- Row for the header and the "Add New Task" button -->
   <div class="row align-items-center mb-3">
     <div class="col">
       <h2 class="text-primary">Your Tasks</h2>
-      <p class="lead text-light">Organize your tasks with ease! TaskGlam simplifies task management.</p>
+      <p class="lead text-light">
+        Organize your tasks with ease! TaskGlam simplifies task management.
+      </p>
     </div>
     <div class="col-auto">
       <a href="{{ url_for('add_task') }}" class="btn btn-primary">
@@ -17,54 +19,78 @@
     </div>
   </div>
 
+  <!-- Row to display task cards -->
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
     {% if tasks %}
-      {% for task in tasks %}
-        <div class="col mb-4" id="task-{{ task.id }}">
-          <div class="card-body" style="background-color: #B9BBB6;">
-            <h5 class="card-title task-title fs-5 fw-bold">
-              <i class="fas fa-tasks"></i> {{ task.title }}
-            </h5>
-            <p class="card-text task-desc text-muted">{{ task.description }}</p>
-            <p class="card-text">
-              <strong>Priority:</strong>
-              <span class="task-priority badge rounded-pill {% if task.priority %}bg-danger{% endif %}">
-                {{ task.priority }}
-              </span>
-            </p>
-            <p class="card-text mb-1">
-              <strong>Created At:</strong> {{ task.created_at.strftime('%Y-%m-%d %H:%M:%S') if task.created_at else 'N/A' }}
-            </p>
-            <p class="card-text mb-1 task-due-date">
-              <strong>Due Date:</strong> {{ task.due_date.strftime('%Y-%m-%d') if task.due_date else 'No due date' }}
-            </p>
-            <button class="btn btn-md btn-primary mark-completed-btn ms-2 mt-2" data-id="{{ task.id }}" {% if task.completed %}disabled{% endif %}>
-                {% if task.completed %}
-                  Completed
-                {% else %}
-                  Mark as Completed
-                {% endif %}
-            </button>
+    <!-- Loop through tasks and display each task in a card -->
+    {% for task in tasks %}
+    <div class="col mb-4" id="task-{{ task.id }}">
+      <div class="card-body" style="background-color: #B9BBB6;">
+        <h5 class="card-title task-title fs-5 fw-bold">
+          <i class="fas fa-tasks"></i> {{ task.title }}
+        </h5>
+        <p class="card-text task-desc text-muted">{{ task.description }}</p>
+        <p class="card-text">
+          <strong>Priority:</strong>
+          <!-- Conditional styling for task priority -->
+          <span
+            class="task-priority badge rounded-pill {% if task.priority %}bg-danger{% endif %}"
+          >
+            {{ task.priority }}
+          </span>
+        </p>
+        <p class="card-text mb-1">
+          <strong>Created At:</strong> {{ task.created_at.strftime('%Y-%m-%d
+          %H:%M:%S') if task.created_at else 'N/A' }}
+        </p>
+        <p class="card-text mb-1 task-due-date">
+          <strong>Due Date:</strong> {{ task.due_date.strftime('%Y-%m-%d') if
+          task.due_date else 'No due date' }}
+        </p>
+        <!-- Button to mark task as completed, disabled if already completed -->
+        <button
+          class="btn btn-md btn-primary mark-completed-btn ms-2 mt-2"
+          data-id="{{ task.id }}"
+          {%
+          if
+          task.completed
+          %}disabled{%
+          endif
+          %}
+        >
+          {% if task.completed %} Completed {% else %} Mark as Completed {%
+          endif %}
+        </button>
 
-            <div class="d-flex justify-content-between align-items-center mt-5">
-              <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn btn-md btn-warning" title="Edit Task">
-                <i class="fas fa-edit"></i>
-              </a>
+        <!-- Buttons to edit and delete the task -->
+        <div class="d-flex justify-content-between align-items-center mt-5">
+          <a
+            href="{{ url_for('edit_task', task_id=task.id) }}"
+            class="btn btn-md btn-warning"
+            title="Edit Task"
+          >
+            <i class="fas fa-edit"></i>
+          </a>
 
-              <button class="btn btn-md btn-danger delete-task-btn ms-2" data-id="{{ task.id }}" title="Delete Task">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
-          </div>
+          <!-- Message displayed when no tasks are available -->
+          <button
+            class="btn btn-md btn-danger delete-task-btn ms-2"
+            data-id="{{ task.id }}"
+            title="Delete Task"
+          >
+            <i class="fas fa-trash"></i>
+          </button>
         </div>
-      {% endfor %}
-    {% else %}
-      <div class="alert alert-info" role="alert">
-        No tasks created yet! Add a new task to get started.
       </div>
+    </div>
+    {% endfor %} {% else %}
+    <div class="alert alert-info" role="alert">
+      No tasks created yet! Add a new task to get started.
+    </div>
     {% endif %}
   </div>
 </div>
 
+<!-- Include JavaScript file for handling task operations -->
 <script src="{{ url_for('static', filename='scripts/tasks.js') }}"></script>
 {% endblock %}

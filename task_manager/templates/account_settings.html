@@ -1,41 +1,97 @@
+<!-- The Account Settings view of TaskGlam Flask Application -->
 {% extends "base.html" %}
 
 {% block title %}
-Account Settings
-{% endblock %}
+Account Settings {% endblock %} {% block content %}
 
-{% block content %}
-<div class="container mt-5 text-light d-flex justify-content-center align-items-center vh-100 mb-5">
-    <div class="card bg-dark border-secondary text-white shadow rounded-3" style="max-width: 400px;">
-        <div class="card-header bg-primary">
-            <h3>Update Your Account</h3>
-        </div>
-        <div class="card-body">
-            <form action="{{ url_for('update_account') }}" method="POST" class="mt-4">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" class="form-control" value="{{ current_user.email }}" required>
-                </div>
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" class="form-control" value="{{ current_user.username }}" required>
-                </div>
-                <div class="form-group">
-                    <label for="current_password">Current Password:</label>
-                    <input type="password" id="current_password" name="current_password" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="new_password">New Password:</label>
-                    <input type="password" id="new_password" name="new_password" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="confirm_new_password">Confirm New Password:</label>
-                    <input type="password" id="confirm_new_password" name="confirm_new_password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Update Account</button>
-            </form>
-        </div>
+<div
+  class="container mt-5 text-light d-flex justify-content-center align-items-center vh-100 mb-5"
+>
+  <!-- A container with margin-top and margin-bottom classes, centered content, and full viewport height -->
+  <div
+    class="card bg-dark border-secondary text-white shadow rounded-3"
+    style="max-width: 400px;"
+  >
+    <!-- A card with dark background, secondary border, white text, shadow, and rounded corners, with a maximum width of 400px -->
+    <div class="card-header bg-primary">
+      <!-- Card header with a primary background color -->
+      <h3>Update Your Account</h3>
     </div>
+    <div class="card-body">
+
+      <!-- Card body to contain the form -->
+      <form action="{{ url_for('update_account') }}" method="POST" class="mt-4">
+        <!-- Form that submits to the 'update_account' route using POST method, with a top margin -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            value="{{ current_user.email }}"
+            required
+          />
+
+          <!-- Email input field, pre-filled with the current user's email, and required for form submission -->
+        </div>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control"
+            value="{{ current_user.username }}"
+            required
+          />
+
+          <!-- Username input field, pre-filled with the current user's username, and required for form submission -->
+        </div>
+        <div class="form-group">
+          <label for="current_password">Current Password:</label>
+          <input
+            type="password"
+            id="current_password"
+            name="current_password"
+            class="form-control"
+            required
+          />
+
+          <!-- Current password input field, required for form submission -->
+        </div>
+        <div class="form-group">
+          <label for="new_password">New Password:</label>
+          <input
+            type="password"
+            id="new_password"
+            name="new_password"
+            class="form-control"
+          />
+
+          <!-- New password input field (optional) -->
+        </div>
+        <div class="form-group">
+          <label for="confirm_new_password">Confirm New Password:</label>
+          <input
+            type="password"
+            id="confirm_new_password"
+            name="confirm_new_password"
+            class="form-control"
+          />
+
+          <!-- Confirm new password input field (optional) -->
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Update Account
+        </button>
+
+        <!-- Submit button to update the account -->
+      </form>
+    </div>
+  </div>
 </div>
+
+<!-- Linking to the external JavaScript file for account settings -->
 <script src="{{ url_for('static', filename='scripts/account_settings.js') }}"></script>
 {% endblock %}

@@ -1,68 +1,83 @@
-{% extends 'base.html' %}
-
-{% block title %}
-    Add Task
-{% endblock %}
-
-{% block content %}
+<!-- The Add task view of TaskGlam Flask Application -->
+{% extends 'base.html' %} {% block title %} Add Task {% endblock %} {% block
+content %}
 <body class="bg-light">
-    <div class="container mt-4 mb-5">
-        <div class="card shadow-sm">
-            <div class="card-header bg-primary text-white">
-                <h2>Add Task</h2>
-            </div>
-        </div>
-        <div class="card px-3 py-4 mx-auto" style="background-color: #B9BBB6; color: black; font-size: 20px">
-            <form method="POST">
-                {{ form.hidden_tag() }}
-                    <div class="form-group">
-                        {{ form.title.label(for="title") }}
-                        {{ form.title(class="form-control", id="title", placeholder="Enter Task Title") }}
-                        {% if form.title.errors %}
-                            {% for error in form.title.errors %}
-                                <span style="color: red;">{{ error }}</span>
-                                <br>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        {{ form.description.label(for="description") }}
-                        {{ form.description(class="form-control", id="description", placeholder="Provide additional details about your task (Optional)") }}
-                        {% if form.description.errors %}
-                            {% for error in form.description.errors %}
-                                <span style="color: red;">{{ error}}</span>
-                                <br>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        {{ form.priority.label(for="priority") }}
-                        {{ form.priority(class="form-control", id="priority") }}
-                        {% if form.priority.errors %}
-                            {% for error in form.priority.errors %}
-                                <span style="color: red;">{{ error }}</span>
-                                <br>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        {{ form.due_date.label(for="due_date") }}
-                        {{ form.due_date(class="form-control", id="due_date", placeholder="YYYY-MM-DD") }}
-                        {% if form.due_date.errors %}
-                            {% for error in form.due_date.errors %}
-                                <span style="color: red;">{{ error }}</span>
-                                <br>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">  <button type="submit" class="btn btn-primary btn-block">Add Task</button>
-                            <a href="{{ url_for('add_task') }}" class="btn btn-secondary btn-block mt-2">Clear Form</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+  <div class="container mt-4 mb-5">
+    <!-- Card for Task Form Heading -->
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h2>Add Task</h2>
+      </div>
     </div>
+    <!-- Card for Task Form Content -->
+    <div
+      class="card px-3 py-4 mx-auto"
+      style="background-color: #B9BBB6; color: black; font-size: 20px"
+    >
+
+      <!-- Form to Add Task -->
+      <form method="POST">
+        <!-- CSRF Token -->
+        {{ form.hidden_tag() }}
+        <!-- Task Title Input -->
+        <div class="form-group">
+          {{ form.title.label(for="title") }} {{
+          form.title(class="form-control", id="title", placeholder="Enter Task Title") }}
+          {% if form.title.errors %} {% for error in
+          form.title.errors %}
+          <span style="color: red;">{{ error }}</span>
+          <br />
+          {% endfor %} {% endif %}
+        </div>
+
+        <!-- Task Description Input -->
+        <div class="form-group">
+          {{ form.description.label(for="description") }} {{
+          form.description(class="form-control", id="description",
+          placeholder="Provide additional details about your task (Optional)")
+          }} {% if form.description.errors %} {% for error in
+          form.description.errors %}
+          <span style="color: red;">{{ error}}</span>
+          <br />
+          {% endfor %} {% endif %}
+        </div>
+
+        <!-- Task Priority Input -->
+        <div class="form-group">
+          {{ form.priority.label(for="priority") }} {{
+          form.priority(class="form-control", id="priority") }} {% if
+          form.priority.errors %} {% for error in form.priority.errors %}
+          <span style="color: red;">{{ error }}</span>
+          <br />
+          {% endfor %} {% endif %}
+        </div>
+
+        <!-- Task Due Date Input -->
+        <div class="form-group">
+          {{ form.due_date.label(for="due_date") }} {{
+          form.due_date(class="form-control", id="due_date",
+          placeholder="YYYY-MM-DD") }} {% if form.due_date.errors %} {% for
+          error in form.due_date.errors %}
+          <span style="color: red;">{{ error }}</span>
+          <br />
+          {% endfor %} {% endif %}
+        </div>
+
+        <!-- Form Buttons -->
+        <div class="row mt-3">
+          <div class="col">
+            <button type="submit" class="btn btn-primary btn-block">
+              Add Task
+            </button>
+            <a
+              href="{{ url_for('add_task') }}"
+              class="btn btn-secondary btn-block mt-2"
+              >Clear Form</a
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
 {% endblock %}

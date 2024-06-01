@@ -1,61 +1,60 @@
-{% extends 'base.html' %}
-
-{% block title %}
-    Register Page
-{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block title %} Register Page {% endblock %} {% block content %}
 <body class="text-center">
+    <!-- Container for the registration form -->
     <div class="container mt-4 mb-5">
+        <!-- Centered card for the form -->
         <div class="card mx-auto" style="width: 300px; background-color: #eee;">
-            <div class="card-header text-center" style="background-color: #343a40; color: white;">
-                <i class="fas fa-user-plus mr-2"></i> Register
-            </div>
+            <!-- Container for the registration form -->
+            <div class="card-header text-center" style="background-color: #343a40; color: white;"><i class="fas fa-user-plus mr-2"></i> Register</div>
+            <!-- Form start -->
             <form method="POST" class="card-body" style="color: black;">
                 {{ form.hidden_tag() }}
+                <!-- Hidden CSRF token for security -->
+                <!-- Username field -->
                 <div class="form-group">
-                    {{ form.username.label(for="username") }}
-                    {{ form.username(class="form-control", id="username", placeholder="Username") }}
-                    {% for error in form.username.errors %}
-                        <span style="color: red;">{{ error }}</span>
-                    <br>
+                    {{ form.username.label(for="username") }} {{ form.username(class="form-control", id="username", placeholder="Username") }} {% for error in form.username.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    <br />
                     {% endfor %}
                 </div>
 
+                <!-- Email address field -->
                 <div class="form-group">
-                    {{ form.email_address.label(for="email") }}
-                    {{ form.email_address(class="form-control", id="email", placeholder="Email Address") }}
+                    {{ form.email_address.label(for="email") }} {{ form.email_address(class="form-control", id="email", placeholder="Email Address") }}
+                    <!-- Display validation errors for the username field -->
                     {% for error in form.email_address.errors %}
-                        <span style="color: red;">{{ error }}</span>
-                    <br>
+                    <span style="color: red;">{{ error }}</span>
+                    <br />
                     {% endfor %}
                 </div>
 
+                <!-- Password field -->
                 <div class="form-group">
-                    {{ form.password1.label(for="password") }}
-                    {{ form.password1(class="form-control", id="password", placeholder="Password") }}
+                    {{ form.password1.label(for="password") }} {{ form.password1(class="form-control", id="password", placeholder="Password") }}
+                    <!-- Display validation errors for the email address field -->
                     {% for error in form.password1.errors %}
-                        <span style="color: red;">{{ error }}</span>
-                    <br>
+                    <span style="color: red;">{{ error }}</span>
+                    <br />
                     {% endfor %}
                 </div>
 
+                <!-- Confirm Password field -->
                 <div class="form-group">
-                    {{ form.password2.label(for="confirm_password") }}
-                    {{ form.password2(class="form-control", id="confirm_password", placeholder="Confirm Password") }}
+                    {{ form.password2.label(for="confirm_password") }} {{ form.password2(class="form-control", id="confirm_password", placeholder="Confirm Password") }}
+                    <!-- Display validation errors for the password field -->
                     {% for error in form.password2.errors %}
-                        <span style="color: red;">{{ error }}</span>
-                    <br>
+                    <span style="color: red;">{{ error }}</span>
+                    <br />
                     {% endfor %}
                 </div>
 
-                <br>
+                <!-- Submit button -->
                 {{ form.submit(class="btn btn-primary btn-block") }}
-
             </form>
         </div>
 
-        <div class="mt-4 text-center">
+        <!-- Link to the login page -->
+        <div class="mt-2 text-center">
             <p class="text-light">Already have an account? <a href="{{ url_for('login_page') }}">Login</a></p>
         </div>
     </div>
