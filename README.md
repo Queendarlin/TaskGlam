@@ -32,7 +32,7 @@ Making the app visually appealing proved to be the most challenging aspect, as i
 [**Queendarlin Nnamani**](https://www.linkedin.com/in/queendarlin-nnamani/)
 
 See it in Action!
-Access the deployed TaskGlam application here: [https://taskglamapp.onrender.com/home]
+Access the deployed TaskGlam application here: [https://taskglamapp.onrender.com]
 
 ## Installation (Developers Only):
 
