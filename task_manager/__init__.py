@@ -29,13 +29,16 @@ db = SQLAlchemy(app)
 # Initialize the Bcrypt extension for hashing passwords securely.
 bcrypt = Bcrypt(app)
 
-# Initialize the LoginManager extension to handle user sessions and authentication.
+# Initialize the LoginManager extension
+# to handle user sessions and authentication.
 login_manager = LoginManager(app)
 
-# Set the login view to redirect users to the login page if they are not authenticated.
+# Set the login view to redirect users to the login page
+# if they are not authenticated.
 login_manager.login_view = "login_page"
 
-# Set the category for flash messages when users are redirected to the login page.
+# Set the category for flash messages
+# when users are redirected to the login page.
 login_manager.login_message_category = "info"
 
 from task_manager import routes

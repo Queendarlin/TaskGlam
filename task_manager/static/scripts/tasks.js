@@ -7,7 +7,7 @@ document.querySelectorAll('.delete-task-btn').forEach(button => {
         // Get the task ID from the button's data-id attribute
         const taskId = button.getAttribute('data-id');
 
-        // Use SweetAlert2 (Swal) to display a confirmation dialog
+        // Use SweetAlert2 Swal) to display a confirmation dialog
         Swal.fire({
             title: 'Are you sure?',
             text: 'You won\'t be able to revert this!',

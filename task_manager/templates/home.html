@@ -12,12 +12,12 @@
 </div>
 
 <!-- Hero Text Section -->
-<div class="container text-center my-5" style="color: #ffffff;">
+<div class="container text-center my-5 text-warning">
   <div class="col-md-8 mx-auto">
     <h1>TaskGlam</h1>
-    <h4 class="lead font-weight-normal mb-5">
+    <h5 class="mb-5">
       Task Management with a Touch of Glamor
-    </h4>
+    </h5>
     <a class="btn btn-primary btn-lg" href="{{ url_for('register_page') }}"
       >Get Started</a
     >
@@ -36,8 +36,8 @@
           alt="Feature Image"
         />
         <div class="card-body">
-          <h5 class="card-title">Easy to Use</h5>
-          <p class="card-text">
+          <h5 class="card-title text-danger">Easy to Use</h5>
+          <p class="card-text mute">
             Our intuitive interface ensures you can manage your tasks
             effortlessly.
           </p>
@@ -53,8 +53,8 @@
           alt="Feature Image 2"
         />
         <div class="card-body">
-          <h5 class="card-title">Stay Organized</h5>
-          <p class="card-text">
+          <h5 class="card-title text-danger">Stay Organized</h5>
+          <p class="card-text mute">
             Keep all your tasks in one place and stay on top of your schedule.
           </p>
         </div>
@@ -69,23 +69,36 @@
           alt="Feature Image 3"
         />
         <div class="card-body">
-          <h5 class="card-title">Effortless Productivity</h5>
-          <p class="card-text">
+          <h5 class="card-title text-danger">Effortless Productivity</h5>
+          <p class="card-text mute">
             Simplifies task management process, making it less stressful and
             time-consuming.
           </p>
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="mb-4 text-danger shadow-sm mt-5 mr-5">
+          <h5>Adding Task is easy with TaskGlam</h5>
+          <img src="{{ url_for('static', filename='images/Add-task.gif') }}" alt="Adding task on TaskGlam" class="card-img-top" style="max-width: 400px;">
+        </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="text-danger mt-5">
+        <h5>Edit a task with one click</h5>
+        <img src="{{ url_for('static', filename='images/edit-task.gif') }}" alt="Adding task on TaskGlam" class="card-img-top" style="max-width: 400px;">
+    </div>
   </div>
+</div>
 </div>
 
 <!-- Benefits Section -->
-<div class="container my-5" style="color: white;">
-  <h2 class="text-center mb-4">Why Choose TaskGlam?</h2>
+<div class="container my-5">
+  <h2 class="text-center mb-4 text-warning">Why Choose TaskGlam?</h2>
   <div class="row">
     <!-- Benefits list -->
-    <div class="col-md-6">
+    <div class="col-md-6 text-light">
       <ul class="list-unstyled">
         <li class="media my-4">
           <i class="fas fa-check-circle fa-2x mr-3"></i>
@@ -135,9 +148,26 @@
     </div>
   </div>
 
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="mb-4 text-danger shadow-lg mt-5">
+        <h5>Mark a Task as Completed</h5>
+        <img src="{{ url_for('static', filename='images/complete-task.gif') }}" alt="Marking task as on TaskGlam" class="card-img-top" style="max-width: 400px;">
+      </div>
+    </div>
+    <div class="col-lg-6 mt-5">
+      <div class="text-danger">
+        <h5>Delete a Task in one click</h5>
+        <img src="{{ url_for('static', filename='images/delete-task.gif') }}" alt="Deleting task on TaskGlam" class="card-img-top" style="max-width: 400px;">
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- About Section -->
-  <div class="container my-5 mt-7 p-2 text-success bg-dark">
-    <h2 class="text-center">About TaskGlam</h2>
+  <div class="container my-5 mt-7 p-2 text-danger">
+    <h2 class="text-center text-warning">About TaskGlam</h2>
     <p style="font-size: 18px;">
       TaskGlam was born out of my desire to create a user-friendly and efficient
       platform for managing tasks. I constantly juggled multiple tasks and

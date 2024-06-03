@@ -33,7 +33,6 @@
       <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
       <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
       <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
-      <link rel="manifest" href="/site.webmanifest">
       <title>{% block title %} {% endblock %}</title>
    </head>
    <body class="d-flex flex-column min-vh-100">
@@ -42,7 +41,7 @@
          <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand text-primary font-weight-bold" href="{{ url_for('home_page') }}">
             <img
-               src="{{ url_for('static', filename='images/TaskGlam Logo.png') }}"
+               src="{{ url_for('static', filename='images/TaskGlam logo.png') }}"
                alt="TaskGlam Logo"
                class="img-fluid"
                width="60"
@@ -174,7 +173,8 @@
    <!-- Custom Styles -->
    <style>
       body {
-      background-color: #032B44;
+      background-image: linear-gradient(to right bottom, #060646, #060646, #060646, #060646, #060646, #1f0442, #2d023e, #370039, #47002e, #510023, #560d19, #571c10);
+      font-family: Sans-Serif, helvetica;
       }
       header {
       background-color: #f8f9fa;
@@ -193,5 +193,22 @@
       .table-dark {
       background-color: #343a40;
       }
+      /* Skeleton Screen Styles */
+    .skeleton {
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        margin-bottom: 16px;
+        min-height: 100px;
+    }
+    .skeleton-title {
+        width: 60%;
+        height: 20px;
+        margin-bottom: 10px;
+    }
+    .skeleton-text {
+        width: 90%;
+        height: 14px;
+        margin-bottom: 6px;
+    }
    </style>
 </html>
