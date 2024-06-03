@@ -39,7 +39,7 @@
       <!-- Header Section with Navbar -->
       <header>
          <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand text-primary font-weight-bold" href="{{ url_for('home_page') }}">
+            <a class="navbar-brand text-primary font-weight-bold logo" href="{{ url_for('home_page') }}">
             <img
                src="{{ url_for('static', filename='images/TaskGlam logo.png') }}"
                alt="TaskGlam Logo"
@@ -170,45 +170,33 @@
          ></script>
 
    </body>
+
    <!-- Custom Styles -->
    <style>
       body {
-      background-image: linear-gradient(to right bottom, #060646, #060646, #060646, #060646, #060646, #1f0442, #2d023e, #370039, #47002e, #510023, #560d19, #571c10);
-      font-family: Sans-Serif, helvetica;
+         background-image: linear-gradient(to right bottom, #060646, #060646, #060646, #060646, #060646, #1f0442, #2d023e, #370039, #47002e, #510023, #560d19, #571c10);
+         font-family: Sans-Serif, poppins;
       }
       header {
-      background-color: #f8f9fa;
+         background-color: #f8f9fa;
       }
       footer {
-      margin-top: auto;
-      background-color: #f8f9fa;
-      padding: 20px 0;
+         margin-top: auto;
+         background-color: #f8f9fa;
+         padding: 20px 0;
       }
       .social-icons a {
-      margin: 0 10px;
+         margin: 0 10px;
       }
       .social-icons a:hover {
-      color: #343a40;
+         color: #343a40;
       }
       .table-dark {
-      background-color: #343a40;
+         background-color: #343a40;
       }
-      /* Skeleton Screen Styles */
-    .skeleton {
-        background-color: #e0e0e0;
-        border-radius: 4px;
-        margin-bottom: 16px;
-        min-height: 100px;
-    }
-    .skeleton-title {
-        width: 60%;
-        height: 20px;
-        margin-bottom: 10px;
-    }
-    .skeleton-text {
-        width: 90%;
-        height: 14px;
-        margin-bottom: 6px;
-    }
+      .logo {
+          font-family: 'lora', serif;
+          font-size: 1.5em;
+     }
    </style>
 </html>
