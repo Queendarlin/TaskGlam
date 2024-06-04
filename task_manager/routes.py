@@ -36,9 +36,8 @@ def register_page():
         db.session.add(user_to_create)
         db.session.commit()
         login_user(user_to_create)
-        flash(f"Account successfully created! You are logged in as\
-{user_to_create.username}", category='success')
-        return redirect(url_for('add_task'))
+        flash(f"Account successfully created! You are logged in as: {user_to_create.username}", category='success')
+        return redirect(url_for('tasks_page'))
     if form.errors != {}:  # If there are errors from the validations
         for err_msg in form.errors.values():
             flash(f'There was an error creating a user: {err_msg}',
@@ -125,18 +124,15 @@ def login_page():
     """
     form = LoginForm()
     if form.validate_on_submit():
-        attempted_user = User.query.filter_by(username=form.username.data).\
-            first()
+        attempted_user = User.query.filter_by(username=form.username.data).first()
         if attempted_user and attempted_user.check_password_correction(
                 attempted_password=form.password.data
         ):
             login_user(attempted_user)
-            flash(f'Successfully logged in as: {attempted_user.username}',
-                  category='success')
+            flash(f'Successfully logged in as: {attempted_user.username}', category='success')
             return redirect(url_for('tasks_page'))
         else:
-            flash('The username and password do not match! Please try again',
-                  category='danger')
+            flash('The username and password do not match! Please try again', category='danger')
 
     return render_template('login.html', form=form)
 
