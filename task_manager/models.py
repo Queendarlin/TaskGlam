@@ -57,8 +57,7 @@ class User(db.Model, UserMixin):
             Args:
                 plain_text_password (str): The plain text password.
         """
-        self.password_hash =\
-            bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
+        self.password_hash = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
 
     def check_password_correction(self, attempted_password):
         """
@@ -70,8 +69,7 @@ class User(db.Model, UserMixin):
             Returns:
                 bool: True if the password matches, False otherwise.
         """
-        return bcrypt.check_password_hash(self.password_hash,
-                                          attempted_password)
+        return bcrypt.check_password_hash(self.password_hash, attempted_password)
 
 
 class Task(db.Model):
